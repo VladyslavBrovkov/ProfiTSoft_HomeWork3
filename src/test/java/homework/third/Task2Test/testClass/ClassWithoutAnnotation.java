@@ -1,12 +1,9 @@
 package homework.third.Task2Test.testClass;
 
-import homework.third.Task2.Property;
-
 import java.time.Instant;
 import java.util.Objects;
 
-public class AnnotatedClass {
-
+public class ClassWithoutAnnotation {
     private String stringProperty;
 
     private Integer numberProperty;
@@ -41,7 +38,7 @@ public class AnnotatedClass {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AnnotatedClass that = (AnnotatedClass) o;
+        ClassWithoutAnnotation that = (ClassWithoutAnnotation) o;
         return Objects.equals(stringProperty, that.stringProperty) && Objects.equals(numberProperty, that.numberProperty) && Objects.equals(timeProperty, that.timeProperty);
     }
 
@@ -52,7 +49,7 @@ public class AnnotatedClass {
 
     @Override
     public String toString() {
-        return "NotAnnotatedClass{" +
+        return "ClassWithoutAnnotation{" +
                 "stringProperty='" + stringProperty + '\'' +
                 ", numberProperty=" + numberProperty +
                 ", timeProperty=" + timeProperty +

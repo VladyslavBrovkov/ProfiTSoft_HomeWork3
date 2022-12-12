@@ -37,7 +37,7 @@
  .idea/modules.xml
  .idea/*.iml
  .idea/modules
- *.iml
+ **/*.iml
  *.ipr
 
 # CMake
@@ -57,7 +57,7 @@ out/
 
 .idea/**
 
-ProfITsoft_HomeWork1.iml
+ProfiTSoft_HomeWork3.iml.iml
 
 # JIRA plugin
 atlassian-ide-plugin.xml

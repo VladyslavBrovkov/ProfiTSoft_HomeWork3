@@ -10,6 +10,7 @@ public class App {
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
         //Task1
         int numberOfThreads = 8;
+        System.out.println();
             ViolationStatisticUtil.writeFineStatisticToFile(new File("src/main/resources/Task1Files/ViolationFiles/"),
                     new File("src/main/resources/Task1Files/violationStatParallel.xml"), numberOfThreads);
     }
