@@ -23,16 +23,9 @@ public class ClassMakerTest {
     @Test
     public void classCreatingWithAnnotationTest() {
         ClassWithAnnotation classWithAnnotation = ClassMaker.loadClassFromProperties(ClassWithAnnotation.class, testProperties);
-        assertEquals("value1", classWithAnnotation.getStringProperty());
-        assertEquals(Instant.parse("2022-11-29T18:30:00Z"), classWithAnnotation.getTimeProperty());
+        assertEquals("value1", classWithAnnotation.getString());
+        assertEquals(Instant.parse("2022-12-12T14:31:30Z"), classWithAnnotation.getTimeProperty());
         assertEquals(10, classWithAnnotation.getNumber());
-    }
-
-    @Test
-    public void classCreatingWithCustomFieldsNames() {
-        ClassWithCustomFieldsNames classWithCustomFieldsNames = ClassMaker.loadClassFromProperties(ClassWithCustomFieldsNames.class, testProperties);
-        assertEquals("StringString", classWithCustomFieldsNames.getString());
-        assertEquals(10, classWithCustomFieldsNames.getProperty());
     }
 
     @Test

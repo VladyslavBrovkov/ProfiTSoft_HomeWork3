@@ -5,20 +5,22 @@ import homework.third.Task2.Property;
 import java.time.Instant;
 
 public class ClassWithAnnotation {
-    private String stringProperty;
+
+    @Property(value = "stringProperty")
+    private String string;
 
     @Property(value = "numberProperty")
     private int number;
 
-    @Property(format = "dd.MM.yyyy HH:mm")
-    private Instant timeProperty;
+    @Property(format = "yyyy-MM-dd'T'HH:mm:ssZ", value = "customTimeProperty")
+    private Instant time;
 
-    public String getStringProperty() {
-        return stringProperty;
+    public String getString() {
+        return string;
     }
 
-    public void setStringProperty(String stringProperty) {
-        this.stringProperty = stringProperty;
+    public void setString(String string) {
+        this.string = string;
     }
 
     public int getNumber() {
@@ -30,10 +32,10 @@ public class ClassWithAnnotation {
     }
 
     public Instant getTimeProperty() {
-        return timeProperty;
+        return time;
     }
 
-    public void setTimeProperty(Instant timeProperty) {
-        this.timeProperty = timeProperty;
+    public void setTime(Instant time) {
+        this.time = time;
     }
 }
