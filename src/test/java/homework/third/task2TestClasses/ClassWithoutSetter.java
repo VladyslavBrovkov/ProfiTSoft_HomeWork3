@@ -1,4 +1,4 @@
-package homework.third.Task2Test.testClass;
+package homework.third.task2TestClasses;
 
 import java.time.Instant;
 

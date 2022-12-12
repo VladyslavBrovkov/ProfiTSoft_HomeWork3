@@ -1,8 +1,6 @@
-package homework.third.Task2Test;
-
 import homework.third.Task2.ClassMaker;
 import homework.third.Task2.exception.*;
-import homework.third.Task2Test.testClass.*;
+import homework.third.task2TestClasses.*;
 import org.junit.Test;
 
 import java.nio.file.Path;
@@ -17,7 +15,6 @@ public class ClassMakerTest {
     @Test
     public void classCreatingWithoutAnnotationTest() {
         ClassWithoutAnnotation classWithoutAnnotation = ClassMaker.loadClassFromProperties(ClassWithoutAnnotation.class, testProperties);
-        System.out.println(String.class.getSimpleName());
         assertEquals("value1", classWithoutAnnotation.getStringProperty());
         assertEquals(Instant.parse("2022-11-29T18:30:00Z"), classWithoutAnnotation.getTimeProperty());
         assertEquals(10, classWithoutAnnotation.getNumberProperty());
