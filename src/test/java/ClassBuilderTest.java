@@ -1,4 +1,4 @@
-import homework.third.Task2.ClassMaker;
+import homework.third.Task2.ClassBuilder;
 import homework.third.Task2.exception.*;
 import homework.third.task2TestClasses.*;
 import org.junit.Test;
@@ -9,12 +9,12 @@ import java.time.Instant;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
-public class ClassMakerTest {
+public class ClassBuilderTest {
     private final Path testProperties = Path.of("src/test/resources/propertiesForTest.properties");
 
     @Test
     public void classCreatingWithoutAnnotationTest() {
-        ClassWithoutAnnotation classWithoutAnnotation = ClassMaker.loadClassFromProperties(ClassWithoutAnnotation.class, testProperties);
+        ClassWithoutAnnotation classWithoutAnnotation = ClassBuilder.loadClassFromProperties(ClassWithoutAnnotation.class, testProperties);
         assertEquals("value1", classWithoutAnnotation.getStringProperty());
         assertEquals(Instant.parse("2022-11-29T18:30:00Z"), classWithoutAnnotation.getTimeProperty());
         assertEquals(10, classWithoutAnnotation.getNumberProperty());
@@ -22,7 +22,7 @@ public class ClassMakerTest {
 
     @Test
     public void classCreatingWithAnnotationTest() {
-        ClassWithAnnotation classWithAnnotation = ClassMaker.loadClassFromProperties(ClassWithAnnotation.class, testProperties);
+        ClassWithAnnotation classWithAnnotation = ClassBuilder.loadClassFromProperties(ClassWithAnnotation.class, testProperties);
         assertEquals("value1", classWithAnnotation.getString());
         assertEquals(Instant.parse("2022-12-12T14:31:30Z"), classWithAnnotation.getTimeProperty());
         assertEquals(10, classWithAnnotation.getNumber());
@@ -30,32 +30,32 @@ public class ClassMakerTest {
 
     @Test
     public void classCreatingWithoutDataInProperties() {
-        assertThrows(PropertyDataException.class, () -> ClassMaker.loadClassFromProperties(ClassWithoutDataInProperties.class, testProperties));
+        assertThrows(PropertyDataException.class, () -> ClassBuilder.loadClassFromProperties(ClassWithoutDataInProperties.class, testProperties));
     }
 
     @Test
     public void classCreatingWithoutSetterTest() {
-        assertThrows(SetterException.class, () -> ClassMaker.loadClassFromProperties(ClassWithoutSetter.class, testProperties));
+        assertThrows(SetterException.class, () -> ClassBuilder.loadClassFromProperties(ClassWithoutSetter.class, testProperties));
     }
 
     @Test
     public void classCreatingWithWrongDateFormat() {
-        assertThrows(DateFormatException.class, () -> ClassMaker.loadClassFromProperties(ClassWithWrongDateFormat.class, testProperties));
+        assertThrows(DateFormatException.class, () -> ClassBuilder.loadClassFromProperties(ClassWithWrongDateFormat.class, testProperties));
     }
 
     @Test
     public void classCreatingWithWrongFieldType() {
-        assertThrows(FieldParseException.class, () -> ClassMaker.loadClassFromProperties(ClassWithWrongFieldsType.class, testProperties));
+        assertThrows(FieldParseException.class, () -> ClassBuilder.loadClassFromProperties(ClassWithWrongFieldsType.class, testProperties));
     }
 
     @Test
     public void classCreatingWithoutEmptyConstructor() {
-        assertThrows(NoEmptyConstructorException.class, () -> ClassMaker.loadClassFromProperties(ClassWithoutEmptyConstructor.class, testProperties));
+        assertThrows(NoEmptyConstructorException.class, () -> ClassBuilder.loadClassFromProperties(ClassWithoutEmptyConstructor.class, testProperties));
     }
 
     @Test
     public void classCreatingWithNullData(){
-        assertThrows(IllegalArgumentException.class, () -> ClassMaker.loadClassFromProperties(null, null));
+        assertThrows(IllegalArgumentException.class, () -> ClassBuilder.loadClassFromProperties(null, null));
     }
 
 }

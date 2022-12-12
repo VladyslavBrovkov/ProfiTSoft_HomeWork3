@@ -17,7 +17,7 @@ import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.Properties;
 
-public class ClassMaker {
+public class ClassBuilder {
     private static final DateTimeFormatter DEFAULT_DATE_FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
 
     private static Properties properties = new Properties();
